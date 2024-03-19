@@ -9,3 +9,4 @@ Para iniciar a infra estrutura basta rodar o comando
 # Iniciar mongodb + mongo-express
 $ docker compose -f infra/compose.yml up -d
 ```
+para acessar o Mongo Express basta acessar `http://localhost:8081/` e informar o usuario e senha configurado no `infra/compose.yml`
