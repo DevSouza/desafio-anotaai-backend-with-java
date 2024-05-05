@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-DesafioAnotaAiApplication<desafio-anota-ai>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "br.com.devsouza.desafioanotaai.DesafioAnotaAiApplication",
+      "projectName": "desafio-anota-ai",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
