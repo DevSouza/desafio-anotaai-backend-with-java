@@ -1,4 +1,4 @@
-package br.com.devsouza.desafioanotaai.service;
+package br.com.devsouza.desafioanotaai.services;
 
 import java.util.List;
 import java.util.Optional;

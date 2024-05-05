@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.devsouza.desafioanotaai.domain.category.Category;
 import br.com.devsouza.desafioanotaai.domain.category.CategoryDTO;
-import br.com.devsouza.desafioanotaai.service.CategoryService;
+import br.com.devsouza.desafioanotaai.services.CategoryService;
 
 @RestController
 @RequestMapping("/api/v1/category")
