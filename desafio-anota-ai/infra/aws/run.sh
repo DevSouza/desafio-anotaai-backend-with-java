@@ -31,3 +31,4 @@ awslocal lambda create-function --function-name catalogEmitConsumer --runtime no
 awslocal lambda create-event-source-mapping --function-name catalogEmitConsumer --event-source-arn arn:aws:sqs:${AWS_REGION}:000000000000:catalog-update --batch-size 10 --enabled
 
 awslocal s3api create-bucket --bucket anotaai-catalog-marketplace
+rm function.zip
