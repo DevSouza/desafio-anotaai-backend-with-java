@@ -27,5 +27,10 @@ public class Product {
         this.price = data.price();
         this.price = data.price();
         this.category = data.categoryId();
+    }
+
+    public Product(String id) {
+        this.id = id;
     }   
+    
 }

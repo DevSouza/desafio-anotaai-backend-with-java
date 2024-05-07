@@ -8,6 +8,8 @@ import br.com.devsouza.desafioanotaai.domain.category.exceptions.CategoryNotFoun
 import br.com.devsouza.desafioanotaai.domain.product.Product;
 import br.com.devsouza.desafioanotaai.domain.product.ProductDTO;
 import br.com.devsouza.desafioanotaai.domain.product.exceptions.ProductNotFoundException;
+import br.com.devsouza.desafioanotaai.publishers.AwsSnsPublisher;
+import br.com.devsouza.desafioanotaai.publishers.dtos.CatalogEventBody;
 import br.com.devsouza.desafioanotaai.repositories.ProductRepository;
 
 @Service
@@ -15,10 +17,12 @@ public class ProductService {
     
     private final CategoryService categoryService;
     private final ProductRepository productRepository;
+    private final AwsSnsPublisher publisher;
 
-    public ProductService(CategoryService categoryService, ProductRepository productRepository) {
+    public ProductService(CategoryService categoryService, ProductRepository productRepository, AwsSnsPublisher publisher) {
         this.categoryService = categoryService;
         this.productRepository = productRepository;
+        this.publisher = publisher;
     }
 
     public Product insert(ProductDTO data) {
@@ -29,6 +33,7 @@ public class ProductService {
         
         this.productRepository.save(newProduct);
 
+        publisher.publish(CatalogEventBody.newProduct(newProduct));
         return newProduct;
     }
 
@@ -53,6 +58,7 @@ public class ProductService {
         
         this.productRepository.save(product);
 
+        publisher.publish(CatalogEventBody.updateProduct(product));
         return product;
     }
 
@@ -61,6 +67,7 @@ public class ProductService {
             .orElseThrow(ProductNotFoundException::new);
         
         this.productRepository.delete(obj);
+        publisher.publish(CatalogEventBody.deleteProduct(new Product(id)));
     }
     
 }

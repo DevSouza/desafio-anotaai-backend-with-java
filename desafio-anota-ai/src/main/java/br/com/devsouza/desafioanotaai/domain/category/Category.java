@@ -24,4 +24,8 @@ public class Category {
         this.ownerId = categoryDTO.ownerId();
     }
 
+    public Category(String id) {
+        this.id = id;
+    }
+
 }
