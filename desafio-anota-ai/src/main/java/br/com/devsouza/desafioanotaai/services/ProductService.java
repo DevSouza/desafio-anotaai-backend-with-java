@@ -63,11 +63,11 @@ public class ProductService {
     }
 
     public void delete(String id) {
-        Product obj = this.productRepository.findById(id)
+        Product product = this.productRepository.findById(id)
             .orElseThrow(ProductNotFoundException::new);
         
-        this.productRepository.delete(obj);
-        publisher.publish(CatalogEventBody.deleteProduct(new Product(id)));
+        this.productRepository.delete(product);
+        publisher.publish(CatalogEventBody.deleteProduct(product));
     }
     
 }

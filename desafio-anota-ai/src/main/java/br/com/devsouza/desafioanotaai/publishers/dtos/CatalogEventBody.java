@@ -13,10 +13,7 @@ import lombok.Getter;
 public class CatalogEventBody {
     
     private CatalogEvent event;
-
-    @JsonProperty("data.product")
     private Product product;
-    @JsonProperty("data.product")
     private Category category;
 
     private CatalogEventBody() {}

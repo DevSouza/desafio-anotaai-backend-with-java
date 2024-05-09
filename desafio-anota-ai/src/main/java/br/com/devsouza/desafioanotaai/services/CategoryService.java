@@ -45,7 +45,7 @@ public class CategoryService {
 
     public Category update(String id, CategoryDTO categoryData) {
         Category category = this.repository.findById(id)
-        .orElseThrow(CategoryNotFoundException::new);
+            .orElseThrow(CategoryNotFoundException::new);
         
         log.info("Atualizando categoria: ", id);
         if(!categoryData.title().isEmpty()) category.setTitle(categoryData.title());
@@ -63,6 +63,6 @@ public class CategoryService {
         
         log.info("Deletando categoria: ", id);
         this.repository.delete(category);
-        publisher.publish(CatalogEventBody.deleteCategory(new Category(id)));
+        publisher.publish(CatalogEventBody.deleteCategory(category));
     } 
 }
