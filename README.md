@@ -37,3 +37,23 @@ $ ./run.sh
 ```
 
 > Após rodar o script para criar o ambiente no localstack é necessario copiar `AccesskeyId` e `SecretAccessKey` e copiar para application.properties
+
+### Acesso
+
+#### Localstack
+
+para acessar o painel do localstack e visualizar os logs da `lambda` ou o arquivo no `s3` basta acessar `https://app.localstack.cloud`
+
+#### Endpoints
+
+Host: `http://localhost:8080`
+
+- Listar Categorias `GET /api/v1/category`
+- Criar Categoria `POST /api/v1/category`
+- Atualizar Categoria `PUT /api/v1/category/{id}`
+- Deletar Categoria `DELETE /api/v1/category/{id}`
+
+- Listar Produtos `GET /api/v1/product`
+- Criar Produto `POST /api/v1/product`
+- Atualizar Produto `PUT /api/v1/product/{id}`
+- Deletar Produto `DELETE /api/v1/product/{id}`
